@@ -150,6 +150,7 @@ verify_os() {
 
     declare -r MINIMUM_MACOS_VERSION="10.10"
     declare -r MINIMUM_UBUNTU_VERSION="20.04"
+    declare -r MINIMUM_LINUXMINT_VERSION="20.10"
 
     local os_name="$(get_os)"
     local os_version="$(get_os_version)"
@@ -182,8 +183,21 @@ verify_os() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    # Check if the OS is `Linux Mint` and
+    # it's above the required version.
+
+    elif [ "$os_name" == "linuxmint" ]; then
+
+        if is_supported_version "$os_version" "$MINIMUM_LINUXMINT_VERSION"; then
+            return 0
+        else
+            printf "Sorry, this script is intended only for Linux Mint %s+" "$MINIMUM_LINUXMINT_VERSION"
+        fi
+    
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     else
-        printf "Sorry, this script is intended only for macOS and Ubuntu!"
+        printf "Sorry, this script is intended only for macOS, Ubuntu, and Linux Mint!"
     fi
 
     return 1
