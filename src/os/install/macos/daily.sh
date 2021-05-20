@@ -6,7 +6,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_in_purple "\n   Compression Tools\n\n"
+print_in_purple "\n   Daily Tools\n\n"
 
 brew_install "Adobe Acrobat Reader" "adobe-acrobat-reader" "--cask"
 brew_install "Alfred" "alfred" "--cask"

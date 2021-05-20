@@ -18,7 +18,7 @@ To set up the dotfiles run the appropriate snippet in the terminal:
 | macOS | `bash -c "$(curl -LsS https://raw.github.com/gabrielfreiberg/dotfiles/main/src/os/setup.sh)"` |
 | Ubuntu | `bash -c "$(wget -qO - https://raw.github.com/gabrielfreiberg/dotfiles/main/src/os/setup.sh)"` |
 
-That's it! ✨
+That's it! ✨ Almost.
 
 The setup process will:
 
@@ -38,6 +38,11 @@ Setup process in action:
 | ![Setup process on macOS][setup macos] | ![Setup process on Ubuntu][setup ubuntu] |
 |:---:|:---:|
 | macOS | Ubuntu |
+
+After the first run, make sure to add your ssh key to:
+
+1. [Add ssh key to ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+2. Manually install some apps that aren't in here yet, like spotify.
 
 🎨 Customize
 ------------
