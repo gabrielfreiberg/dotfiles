@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 print_in_purple "\n   Compression Tools\n\n"
 
-brew_install "Adobe Reader" "adobe-reader" "--cask"
+brew_install "Adobe Acrobat Reader" "adobe-acrobat-reader" "--cask"
 brew_install "Alfred" "alfred" "--cask"
 brew_install "Bartender" "bartender" "--cask"
 brew_install "Lastpass" "lastpass" "--cask" # don't forget to run installer later
