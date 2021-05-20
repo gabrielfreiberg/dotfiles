@@ -1,7 +1,5 @@
-[Cătălin][repo]’s dotfiles
+[Gabriel][repo]’s dotfiles
 ==========================
-
-[![CI status for macOS][ci badge macos]][ci link macos] [![CI status for Ubuntu][ci badge ubuntu]][ci link ubuntu]
 
 These are the base dotfiles that I start with when I set up
 a new environment (for more specific local needs I use the
@@ -17,8 +15,8 @@ To set up the dotfiles run the appropriate snippet in the terminal:
 
 | OS | Snippet |
 |:---|:---|
-| macOS | `bash -c "$(curl -LsS https://raw.github.com/alrra/dotfiles/main/src/os/setup.sh)"` |
-| Ubuntu | `bash -c "$(wget -qO - https://raw.github.com/alrra/dotfiles/main/src/os/setup.sh)"` |
+| macOS | `bash -c "$(curl -LsS https://raw.github.com/gabrielfreiberg/dotfiles/main/src/os/setup.sh)"` |
+| Ubuntu | `bash -c "$(wget -qO - https://raw.github.com/gabrielfreiberg/dotfiles/main/src/os/setup.sh)"` |
 
 That's it! ✨
 
@@ -65,7 +63,7 @@ Here is an example:
 
 # Set PATH additions.
 
-PATH="/Users/alrra/projects/dotfiles/src/bin/:$PATH"
+PATH="/Users/gabriel/projects/dotfiles/src/bin/:$PATH"
 
 export PATH
 
@@ -165,12 +163,14 @@ Output for `git log`:
 
 The code is available under the [MIT license][license].
 
+Forked from alrra
+
 <!-- Link labels: -->
 
-[ci badge macos]: https://github.com/alrra/dotfiles/workflows/macOS/badge.svg
-[ci badge ubuntu]: https://github.com/alrra/dotfiles/workflows/Ubuntu/badge.svg
-[ci link macos]: https://github.com/alrra/dotfiles/actions?query=workflow%3AmacOS
-[ci link ubuntu]: https://github.com/alrra/dotfiles/actions?query=workflow%3AUbuntu
+[ci badge macos]: https://github.com/gabrielfreiberg/dotfiles/workflows/macOS/badge.svg
+[ci badge ubuntu]: https://github.com/gabrielfreiberg/dotfiles/workflows/Ubuntu/badge.svg
+[ci link macos]: https://github.com/gabrielfreiberg/dotfiles/actions?query=workflow%3AmacOS
+[ci link ubuntu]: https://github.com/gabrielfreiberg/dotfiles/actions?query=workflow%3AUbuntu
 [dirs]: src/os/create_directories.sh
 [fork]: https://help.github.com/en/github/getting-started-with-github/fork-a-repo
 [git log macos]: https://user-images.githubusercontent.com/1223565/101947422-519fc580-3ba5-11eb-90bc-1438072a45e1.png
@@ -183,9 +183,9 @@ The code is available under the [MIT license][license].
 [license]: LICENSE.txt
 [preferences macos]: src/os/preferences/macos
 [preferences ubuntu]: src/os/preferences/ubuntu
-[repo]: https://github.com/alrra
+[repo]: https://github.com/gabrielfreiberg
 [setup macos]: https://cloud.githubusercontent.com/assets/1223565/19314446/cd89a592-90a2-11e6-948d-9d75247088ba.gif
-[setup script]: https://github.com/alrra/dotfiles/blob/2f53485df6be75d207d4c5c03c265730b416555a/src/os/setup.sh#L3
+[setup script]: https://github.com/gabrielfreiberg/dotfiles/blob/2f53485df6be75d207d4c5c03c265730b416555a/src/os/setup.sh#L3
 [setup ubuntu]: https://user-images.githubusercontent.com/1223565/101978032-d0791a80-3c06-11eb-8870-661d0eb3f543.gif
 [setup]: src/os/setup.sh
 [shell]: src/shell
