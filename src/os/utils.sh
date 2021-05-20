@@ -137,6 +137,25 @@ get_os() {
 
 }
 
+get_os_upstream() {
+
+    local os=""
+    local kernelName=""
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    kernelName="$(uname -s)"
+
+    if [ "$(get_os)" == "linuxmint" ]; then
+        os_upstream="ubuntu"
+    else
+        os_upstream="$(get_os)"
+    fi
+
+    printf "%s" "$os_upstream"
+
+}
+
 get_os_version() {
 
     local os=""
