@@ -166,6 +166,8 @@ verify_os() {
             return 0
         else
             printf "Sorry, this script is intended only for macOS %s+" "$MINIMUM_MACOS_VERSION"
+            printf "Actual was %s+" "$os_version"
+
         fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -179,6 +181,8 @@ verify_os() {
             return 0
         else
             printf "Sorry, this script is intended only for Ubuntu %s+" "$MINIMUM_UBUNTU_VERSION"
+            printf "Actual was %s+" "$os_version"
+
         fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -192,6 +196,7 @@ verify_os() {
             return 0
         else
             printf "Sorry, this script is intended only for Linux Mint %s+" "$MINIMUM_LINUXMINT_VERSION"
+            printf "Actual was %s+" "$os_version"
         fi
     
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
