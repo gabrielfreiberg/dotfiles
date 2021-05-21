@@ -23,3 +23,11 @@ printf "\n"
 brew_install "Firefox" "firefox" "--cask"
 brew_install "Firefox Developer" "firefox-developer-edition" "--cask" "homebrew/cask-versions"
 brew_install "Firefox Nightly" "firefox-nightly" "--cask" "homebrew/cask-versions"
+
+# `Safari Technology Preview` requires macOS 10.11.4 or la
+# https://github.com/alrra/dotfiles/issues
+
+if is_supported_version "$(get_os_version)" "10.11.4"; then
+    printf "\n"
+    brew_install "Safari Technology Preview" "safari-technology-preview" "--cask" "homebrew/cask-versions"
+fi
