@@ -11,4 +11,7 @@ print_in_purple "\n   Miscellaneous\n\n"
 install_package "Password Gen" "pwgen"
 install_package "Transmission" "transmission"
 install_package "VLC" "vlc"
-install_package "z" "z"
+
+# apts not got rupa/z
+
+wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh
