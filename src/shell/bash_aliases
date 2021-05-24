@@ -13,7 +13,6 @@ alias -- -="cd -"
 
 # Path shortcuts
 
-alias do="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 

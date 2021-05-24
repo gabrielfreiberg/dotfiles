@@ -2,6 +2,36 @@
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Create a new directory and enter it
+
+mkd() {
+	mkdir -p "$@" && cd "$_";
+}
+
+# find shorthand (f README*)
+
+function f() {
+	find . -name "$1" 2>&1 | grep -v 'Permission denied'
+}
+
+# Determine size of a file or total size of a directory
+
+fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh;
+	else
+		local arg=-sh;
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@";
+	else
+		du $arg .[^.]* ./*;
+	fi;
+}
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Clone a repository and install its dependencies.
 
 clone() {
@@ -37,6 +67,26 @@ clone() {
 
 }
 
+# Use Git’s colored diff when available
+
+hash git &>/dev/null;
+if [ $? -eq 0 ]; then
+	function diff() {
+		git diff --no-index --color-words "$@";
+	}
+fi;
+
+# git commit browser. needs fzf
+
+log() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --toggle-sort=\` \
+      --bind "ctrl-m:execute:
+                echo '{}' | grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R'"
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Create data URI from a file.
@@ -69,6 +119,40 @@ datauri() {
 delete-files() {
     local q="${1:-*.DS_Store}"
     find . -type f -name "$q" -ls -delete
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Normalize `open` across Linux, macOS, and Windows.
+# This is needed to make the `o` function (see below) cross-platform.
+
+if [ ! $(uname -s) = 'Darwin' ]; then
+	if grep -q Microsoft /proc/version; then
+		# Ubuntu on Windows using the Linux subsystem
+		alias open='explorer.exe';
+	else
+		alias open='xdg-open';
+	fi
+fi
+
+# `o` with no arguments opens the current directory, otherwise opens the given
+# location
+
+function o() {
+	if [ $# -eq 0 ]; then
+		open .;
+	else
+		open "$@";
+	fi;
+}
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+
+function tre() {
+	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -127,41 +211,6 @@ gz() {
         printf "\"%s\" is not a file.\n" "$1"
     fi
 
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Human readable file size
-# (because `du -h` doesn't cut it for me).
-
-hrfs() {
-
-    printf "%s" "$1" |
-    awk '{
-            i = 1;
-            split("B KB MB GB TB PB EB ZB YB WTFB", v);
-            value = $1;
-
-            # confirm that the input is a number
-            if ( value + .0 == value ) {
-
-                while ( value >= 1024 ) {
-                    value/=1024;
-                    i++;
-                }
-
-                if ( value == int(value) ) {
-                    printf "%d %s", value, v[i]
-                } else {
-                    printf "%.1f %s", value, v[i]
-                }
-
-            }
-        }' |
-    sed -e ":l" \
-        -e "s/\([0-9]\)\([0-9]\{3\}\)/\1,\2/; t l"
-    #    └─ add thousands separator
-    #       (changes "1023.2 KB" to "1,023.2 KB")
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -251,3 +300,7 @@ qt() {
     #     │└─ search all files under each directory, recursively
     #     └─ ignore case
 }
+
+# Load OS specific configs.
+
+. "$OS/bash_functions"

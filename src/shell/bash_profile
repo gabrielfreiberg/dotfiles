@@ -26,7 +26,7 @@ source_bash_files() {
         && . "../os/utils.sh"
 
     # shellcheck disable=SC2034
-    declare -r OS="$(get_os)"
+    declare -r OS="$(get_os_upstream)"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -55,4 +55,4 @@ unset -f source_bash_files
 # Clear system messages (system copyright notice, the date
 # and time of the last login, the message of the day, etc.).
 
-clear
+#clear
