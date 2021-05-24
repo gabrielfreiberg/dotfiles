@@ -47,7 +47,19 @@ source_bash_files() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+source_z() {
+    # z beats cd most of the time. `brew install z`
+
+    if which brew > /dev/null; then
+        zpath="$(brew --prefix)/etc/profile.d/z.sh"
+        [ -s $zpath ] && source $zpath
+    fi;
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 source_bash_files
+source_z
 unset -f source_bash_files
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
