@@ -21,6 +21,7 @@ upgrade
 ./misc_tools.sh
 ./../npm.sh
 ./terminal.sh
+./useful-binaries.sh
 ./../vim.sh
 
 ./cleanup.sh
