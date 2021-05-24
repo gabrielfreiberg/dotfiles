@@ -30,6 +30,8 @@ alias mv="mv -iv"
 
 alias rm="rm -rf --"
 
+alias del="trash"
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Git Stuff
