@@ -48,9 +48,8 @@ After the first run, make sure to add your ssh key to:
 
 ### macOS
 
-1. iTerm2 should load preferences from custom folder and save changes when quitting
-2. Install alfred license
-3. Install sizeup license
+1. Install alfred license
+2. Install sizeup license
 
 🎨 Customize
 ------------
