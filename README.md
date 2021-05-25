@@ -45,8 +45,12 @@ After the first run, make sure to add your ssh key to:
 
 1. [Add passphrase to ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 2. Manually install some apps that aren't in here yet, like spotify.
-3. iTerm2 should load preferences from custom folder and save changes when quitting
-4. Launch spectacle at login
+
+### macOS
+
+1. iTerm2 should load preferences from custom folder and save changes when quitting
+2. Install alfred license
+3. Install sizeup license
 
 🎨 Customize
 ------------

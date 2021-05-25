@@ -105,4 +105,8 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
+
+alias plistbuddy="/usr/libexec/PlistBuddy"

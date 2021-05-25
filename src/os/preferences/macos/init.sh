@@ -7,5 +7,4 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 print_in_purple "\n   Init other app prefs\n\n"
 
-execute "cp -r ../../init/macos/spectacle/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 2> /dev/null" \
-    "Copy Spectacle JSON"
+# can I automate iterm2 prefs? i think so
