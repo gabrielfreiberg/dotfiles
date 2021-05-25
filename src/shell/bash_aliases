@@ -32,6 +32,8 @@ alias rm="rm -rf --"
 
 alias del="trash"
 
+alias chmox='chmod -x'
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Git Stuff
