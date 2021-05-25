@@ -44,12 +44,16 @@ Setup process in action:
 After the first run, make sure to add your ssh key to:
 
 1. [Add passphrase to ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-2. Manually install some apps that aren't in here yet, like spotify.
+2. Configure insync
 
-### macOS
+#### macOS
 
 1. Install alfred license
 2. Install sizeup license
+
+#### Ubuntu
+
+1. Download and install insync
 
 🎨 Customize
 ------------
