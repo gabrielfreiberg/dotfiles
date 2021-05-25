@@ -39,10 +39,14 @@ Setup process in action:
 |:---:|:---:|
 | macOS | Ubuntu |
 
+### Manual Steps
+
 After the first run, make sure to add your ssh key to:
 
-1. [Add ssh key to ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+1. [Add passphrase to ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 2. Manually install some apps that aren't in here yet, like spotify.
+3. iTerm2 should load preferences from custom folder and save changes when quitting
+4. Launch spectacle at login
 
 🎨 Customize
 ------------
@@ -168,7 +172,14 @@ Output for `git log`:
 
 The code is available under the [MIT license][license].
 
-Forked from alrra
+🙇‍♂️ Thank you
+---------
+
+Inspiration and outright theft of these great dotfiles:
+
+* alrra
+* paulirish
+* mathiasbynens
 
 <!-- Link labels: -->
 
