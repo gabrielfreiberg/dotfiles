@@ -8,7 +8,9 @@
 # Enable `vi` editing mode.
 # https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Readline-vi-Mode
 
-set -o vi
+# oh one liner how much trouble you've caused me
+# breaks "natural editing" in iTerm2
+# set -o vi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
