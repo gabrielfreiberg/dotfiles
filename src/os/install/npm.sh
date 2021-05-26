@@ -24,6 +24,7 @@ main() {
     install_npm_package "Git Open" "git-open" "-g"
     install_npm_package "Git Recent" "git-recent" "-g"
     install_npm_package "Sexy git diffs" "diff-so-fancy" "-g"
+    install_npm_package "SFCC CI" "sfcc-ci" "-g"
     install_npm_package "Trash CLI" "trash-cli" "-g"
 }
 
