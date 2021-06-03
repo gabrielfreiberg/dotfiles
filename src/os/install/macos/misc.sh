@@ -15,7 +15,7 @@ brew_install "Password Gen" "pwgen"
 brew_install "Transmission" "transmission" "--cask"
 brew_install "Unarchiver" "the-unarchiver" "--cask"
 brew_install "VLC" "vlc" "--cask"
-brew_install "z" "z"
+brew_install "z" "z" "--HEAD"
 
 # Not on cask, but I need
 # garmin apps

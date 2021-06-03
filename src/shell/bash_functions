@@ -301,6 +301,16 @@ qt() {
     #     └─ ignore case
 }
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Open visual studio code based on z output
+
+codez() {
+    code $(z -e $1)
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Load OS specific configs.
 
 . "$OS/bash_functions"
