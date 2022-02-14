@@ -7,6 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ./xcode.sh
+# Add Rosetta2
 ./homebrew.sh
 ./bash.sh
 

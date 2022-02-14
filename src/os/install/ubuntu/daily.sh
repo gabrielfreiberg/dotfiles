@@ -10,4 +10,3 @@ print_in_purple "\n   Daily Tools\n\n"
 
 install_package "Albert" "albert"
 install_package "Xournal" "xournal"
-install_package "Zim" "zim"
