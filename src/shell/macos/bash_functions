@@ -7,3 +7,17 @@
 cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Switch Audio
+
+function headset() {
+	switchaudiosource -t input -s "External Headphones"
+	switchaudiosource -t output -s "External Headphones"
+}
+
+function speakers() {
+    switchaudiosource -t input -s "MacBook Pro Microphone"
+    switchaudiosource -t output -s "MacBook Pro Speakers"
+}

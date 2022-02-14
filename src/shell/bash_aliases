@@ -19,6 +19,7 @@ alias dt="cd ~/Desktop"
 alias cp="cp -iv"
 #             │└─ list copied files
 #             └─ prompt before overwriting an existing file
+# Run cp command with \cp to override the alias
 
 alias mkdir="mkdir -pv"
 #                   │└─ list created directories
