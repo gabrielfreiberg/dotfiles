@@ -49,9 +49,6 @@ alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup 
 alias s="sfcc-ci"
 alias sal="sfcc-ci auth:login"
 alias ssl="sfcc-ci sandbox:list"
-alias ssg="sfcc-ci sandbox:get"
-alias ssstart="sfcc-ci sandbox:start"
-alias ssstop="sfcc-ci sandbox:stop"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -86,10 +83,11 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias map="xargs -n1"
 
 # Always enable colored `grep` output
+# Ignore case by default
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias grep='grep --ignore-case --color=auto'
+alias fgrep='fgrep --ignore-case --color=auto'
+alias egrep='egrep --ignore-case --color=auto'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

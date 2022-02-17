@@ -306,7 +306,7 @@ qt() {
 # Open visual studio code based on z output
 
 codez() {
-    code $(z -e $1)
+    code $(z -e $1) && cd $(z -e $1)
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

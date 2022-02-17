@@ -11,6 +11,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+./alfred.sh
 ./app_store.sh
 ./chrome.sh
 ./dock.sh

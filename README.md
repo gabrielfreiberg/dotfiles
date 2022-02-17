@@ -45,11 +45,13 @@ After the first run, make sure to add your ssh key to:
 
 1. [Add passphrase to ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 2. Configure insync
+3. Unbind Spotlight Search keyboard shortcut
 
 #### macOS
 
 1. Install alfred license
 2. Install sizeup license
+3. Install bartender license)
 
 #### Ubuntu
 

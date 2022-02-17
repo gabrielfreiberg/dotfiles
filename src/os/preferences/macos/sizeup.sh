@@ -15,3 +15,5 @@ execute "defaults write com.irradiatedsoftware.SizeUp.plist SnapBackEnabled -boo
 
 execute "defaults write com.irradiatedsoftware.SizeUp.plist CenterNonResizableWindows -bool false" \
     "Disable Center Windows that Don't Resize"
+
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/SizeUp.app", hidden:false}'
