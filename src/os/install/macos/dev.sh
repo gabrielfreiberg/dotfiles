@@ -8,6 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 print_in_purple "\n   Compression Tools\n\n"
 
+brew_install "AWS CLI" "awscli"
 brew_install "Postman" "postman" "--cask"
 brew_install "Soap UI" "soapui" "--cask"
 brew_install "Source Tree" "sourcetree" "--cask"
