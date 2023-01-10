@@ -230,7 +230,7 @@
     attributesFile = ~/.gitattributes
     autocrlf = input
     editor = vim
-    excludesFile = ~/.gitignore
+	excludesfile = /Users/gabrielfreiberg/.gitignore
 
 [diff]
 
@@ -293,6 +293,8 @@
     # https://github.com/git/git/blob/90f7b16b3adc78d4bbabbd426fb69aa78c714f71/Documentation/config.txt#L2847-L2855
 
     useConfigOnly = true
+	name = 
+	email = 
 
     # [!] DO NOT store sensitive information such as the Git user
     # credentials (`name` / `email`), or things such as the `signingkey`
@@ -310,3 +312,11 @@
     #     by the local ones
 
     path = ~/.gitconfig.local
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/gabrielfreiberg/.stCommitMsg
