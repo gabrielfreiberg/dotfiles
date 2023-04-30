@@ -42,6 +42,7 @@ print_in_purple "\n   macOS tools\n\n"
 # Install more recent versions of some macOS tools.
 
 brew_install "vim" "vim" "--with-override-system-vi"
+brew_install "neovim" "neovim"
 brew_install "grep" "grep"
 brew_install "openssh" "openssh"
 brew_install "screen" "screen"

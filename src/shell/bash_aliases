@@ -75,6 +75,9 @@ alias ls="command ls ${colorflag}"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# neovim
+alias vim="nvim"
+
 # Misc
 
 alias :q="exit"

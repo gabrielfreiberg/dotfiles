@@ -110,3 +110,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 
 alias plistbuddy="/usr/libexec/PlistBuddy"
+
+# Overdrive
+
+alias overdrive="~/.local/bin/overdrive"

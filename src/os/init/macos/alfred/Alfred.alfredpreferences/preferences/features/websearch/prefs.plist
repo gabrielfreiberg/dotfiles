@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>0DA8B60E-ECC5-4E31-A389-C9353B0E73A3</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>cs</string>
+			<key>text</key>
+			<string>Confluence Search</string>
+			<key>url</key>
+			<string>https://borngroup.atlassian.net/wiki/search?text={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>1EE7C2FD-E25A-4C54-A6D9-94A0F911A8DE</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>js</string>
+			<key>text</key>
+			<string>Jira Search</string>
+			<key>url</key>
+			<string>https://borngroup.atlassian.net/jira/software/c/projects/REF/issues/SPK-1190?jql=text%20~%20%22{query}%22</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>605FC16D-AFB1-4FCF-871F-76211A0304CE</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>doc</string>
+			<key>text</key>
+			<string>SFCC InfoCenter</string>
+			<key>url</key>
+			<string>https://documentation.b2c.commercecloud.salesforce.com/DOC1/advanced/searchView.jsp?searchWord={query}&amp;maxHits=500</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>DBF8DECA-847C-4E3D-8573-49BE1E53CFEF</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>jt</string>
+			<key>text</key>
+			<string>Jira Ticket</string>
+			<key>url</key>
+			<string>https://borngroup.atlassian.net/browse/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
