@@ -9,7 +9,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 print_in_purple "\n   Miscellaneous\n\n"
 
 install_package "Password Gen" "pwgen"
-install_package "qbittorrent" "qbittorrent"
+# install_package "qbittorrent" "qbittorrent"
 install_package "VLC" "vlc"
 
 # apts not got rupa/z
