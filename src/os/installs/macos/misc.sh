@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 print_in_purple "\n   Miscellaneous\n\n"
 
-brew_install "Calibre E-Book" "calibre" "--cask"
+# brew_install "Calibre E-Book" "calibre" "--cask"
 brew_install "Cheat Sheet" "cheatsheet" "--cask"
 brew_install "Handbrake" "handbrake" "--cask"
 brew_install "Proton VPN" "protonvpn" "--cask"
