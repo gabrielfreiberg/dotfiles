@@ -1139,9 +1139,9 @@
 			<key>HotKey Modifier Flags</key>
 			<integer>1966080</integer>
 			<key>HotKey Window Animates</key>
-			<true/>
-			<key>HotKey Window AutoHides</key>
 			<false/>
+			<key>HotKey Window AutoHides</key>
+			<true/>
 			<key>HotKey Window Dock Click Action</key>
 			<integer>1</integer>
 			<key>HotKey Window Floats</key>
@@ -1663,7 +1663,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.17999999999999988</real>
+			<real>0.059999999999999866</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
