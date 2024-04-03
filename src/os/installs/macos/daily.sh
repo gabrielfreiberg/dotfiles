@@ -12,7 +12,6 @@ brew_install "Adobe Acrobat Reader" "adobe-acrobat-reader" "--cask"
 brew_install "Alfred" "homebrew/cask-versions/alfred4" "--cask"
 brew_install "Bartender" "bartender" "--cask"
 brew_install "Google Drive" "google-drive" "--cask"
-brew_install "insync" "insync" "--cask" # configure me
 brew_install "bitwarden" "bitwarden" "--cask"
 brew_install "bitwarden cli" "bitwarden-cli"
 brew_install "Obsidian" "obsidian" "--cask"
