@@ -12,13 +12,13 @@ upgrade
 ./build-essentials.sh
 
 ./git.sh
-./../nvm.sh
 ./browsers.sh
 ./compression_tools.sh
 ./daily.sh
 ./image_tools.sh
 ./misc.sh
 ./misc_tools.sh
+./../volta.sh
 ./../npm.sh
 ./terminal.sh
 ./useful-binaries.sh

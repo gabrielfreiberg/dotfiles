@@ -20,7 +20,7 @@ main() {
 
     print_in_purple "\n   npm\n\n"
 
-    install_npm_package "npm (update)" "npm"
+    install_npm_package "Update npm" "npm"
     install_npm_package "Git Open" "git-open" "-g"
     install_npm_package "Git Recent" "git-recent" "-g"
     install_npm_package "Sexy git diffs" "diff-so-fancy" "-g"

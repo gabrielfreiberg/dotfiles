@@ -4,7 +4,7 @@
 
 # Lock screen.
 
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias afk="osascript -e 'tell application \"System Events\" to sleep'"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -14,7 +14,7 @@ alias brewd="brew doctor"
 alias brewi="brew install"
 alias brewr="brew uninstall"
 alias brews="brew search"
-alias brewu="brew update \
+alias brewu="brew update --quiet \
                 && brew upgrade \
                 && brew cleanup"
 
@@ -47,12 +47,6 @@ alias show-desktop-icons="defaults write com.apple.finder CreateDesktop -bool tr
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Get local IP.
-
-alias local-ip="ipconfig getifaddr en1"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # Open from the terminal.
 
 alias o="open"
@@ -64,9 +58,7 @@ alias o="open"
 alias u="sudo softwareupdate --install --all \
             && brew update \
             && brew upgrade \
-            && brew cleanup \
-            && npm install -g npm \
-            && npm update -g"
+            && brew cleanup"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

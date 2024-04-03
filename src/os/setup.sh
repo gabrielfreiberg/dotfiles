@@ -22,19 +22,23 @@ download() {
 
     if command -v "curl" &> /dev/null; then
 
-        curl -LsSo "$output" "$url" &> /dev/null
-        #     │││└─ write output to file
-        #     ││└─ show error messages
-        #     │└─ don't show the progress meter
-        #     └─ follow redirects
+        curl \
+            --location \
+            --silent \
+            --show-error \
+            --output "$output" \
+            "$url" \
+                &> /dev/null
 
         return $?
 
     elif command -v "wget" &> /dev/null; then
 
-        wget -qO "$output" "$url" &> /dev/null
-        #     │└─ write output to file
-        #     └─ don't show output
+        wget \
+            --quiet \
+            --output-document="$output" \
+            "$url" \
+                &> /dev/null
 
         return $?
     fi
@@ -138,7 +142,14 @@ extract() {
     local outputDir="$2"
 
     if command -v "tar" &> /dev/null; then
-        tar -zxf "$archive" --strip-components 1 -C "$outputDir"
+
+        tar \
+            --extract \
+            --gzip \
+            --file "$archive" \
+            --strip-components 1 \
+            --directory "$outputDir"
+
         return $?
     fi
 
@@ -259,10 +270,6 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    ./create_directories.sh
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
     ./create_symbolic_links.sh "$@"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -271,7 +278,7 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    ./install/main.sh
+    ./installs/main.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

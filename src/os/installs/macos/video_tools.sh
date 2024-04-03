@@ -6,7 +6,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-print_in_purple "\n   Quick Look\n\n"
+print_in_purple "\n   Video Tools\n\n"
 
-brew_install "JSON" "quicklook-json" "--cask"
-brew_install "Markdown" "qlmarkdown" "--cask"
+brew_install "AtomicParsley" "atomicparsley"
+brew_install "FFmpeg" "ffmpeg"
