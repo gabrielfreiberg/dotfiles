@@ -22,6 +22,9 @@ printf "\n"
 # Don't forget to back this thing up every now and then
 # code --list-extensions
 
+# If you want to clear all the installed extensions, you can run:
+# code --list-extensions | xargs -L 1 code --uninstall-extension
+
 # Install the VSCode plugins
 # In case of issuer certificate errors, go to user settings and set "http.proxyStrictSSL" to false
 
@@ -29,13 +32,15 @@ install_plugin "EditorConfig" "EditorConfig.EditorConfig"
 install_plugin "Encode/Decode" "mitchdenny.ecdc"
 install_plugin "Github VSCode Theme" "GitHub.github-vscode-theme"
 install_plugin "GitLens" "eamodio.gitlens"
+install_plugin "Github Copilot" "github.copilot"
+install_plugin "Github Copilot Chat" "github.copilot-chat"
 install_plugin "Hashicorp Terraform" "hashicorp.terraform"
 install_plugin "Icons" "vscode-icons-team.vscode-icons"
 install_plugin "Markdown All-in-One" "yzhang.markdown-all-in-one"
 install_plugin "Minify" "HookyQR.minify"
 install_plugin "Open in Github" "ziyasal.vscode-open-in-github"
 install_plugin "Partial Diff" "ryu1kn.partial-diff"
-install_plugin "Prophet" "SqrTT.prophet"
+# install_plugin "Prophet" "SqrTT.prophet" # For SFCC development only
 install_plugin "Random" "jrebocho.vscode-random"
 install_plugin "Sequential Number" "neptunedesign.vs-sequential-number"
 install_plugin "Sort Lines" "Tyriar.sort-lines"
