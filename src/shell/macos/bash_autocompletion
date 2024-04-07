@@ -28,3 +28,11 @@ if command -v brew &> /dev/null; then
 elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion;
 fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Terraform autocompletion
+if command -v terraform &> /dev/null; then
+    declare TERRAFORM_PATH="$(brew --prefix terraform)/bin/terraform"
+    complete -C $TERRAFORM_PATH terraform
+fi
