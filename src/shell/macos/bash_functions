@@ -24,17 +24,25 @@ function speakers() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Toggle magic trackpad
+# Toggle bluetooth devices
 
 function trackpad() {
-    mac_addr="f4-1b-a1-30-7d-87"
+    toggle_bt_device "f4-1b-a1-30-7d-87"
+}
+
+function cr4bt() {
+    toggle_bt_device "00-11-67-c7-5e-78"
+}
+
+function toggle_bt_device() {
+    mac_addr=$1
 
     if [[ $(blueutil --is-connected $mac_addr) = '1' ]]
     then
-        echo Disconnecting Trackpad
+        echo Disconnecting $mac_addr
         blueutil --unpair $mac_addr
     else
-        echo Reconnecting Trackpad
+        echo Reconnecting $mac_addr
         blueutil --unpair $mac_addr
         sleep 1
         blueutil --pair $mac_addr
@@ -42,3 +50,4 @@ function trackpad() {
         blueutil --connect $mac_addr
     fi
 }
+
