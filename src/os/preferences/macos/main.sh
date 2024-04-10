@@ -23,8 +23,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 ./maps.sh
 ./photos.sh
 ./safari.sh
-./sizeup.sh
 ./security_and_privacy.sh
+./sizeup.sh
 ./terminal.sh
 ./textedit.sh
 ./trackpad.sh
