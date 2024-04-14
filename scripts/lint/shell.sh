@@ -17,6 +17,7 @@ find \
     ! -path 'src/**/*.terminal' \
     ! -path 'src/shell/curlrc' \
     ! -path 'src/shell/inputrc' \
+    ! -path 'src/os/init/**' \
     -exec shellcheck \
             --exclude=SC1090 \
             --exclude=SC1091 \

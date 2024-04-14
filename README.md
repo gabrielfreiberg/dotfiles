@@ -18,9 +18,9 @@ Table of Contents
     - [Git](#git)
     - [Manual Steps](#manual-steps)
       - [macOS](#macos)
-  - [🎨 Customize](#-customize)
-    - [tmux \& Vim](#tmux--vim)
   - [Customize](#customize)
+    - [tmux \& Vim](#tmux--vim)
+  - [Customize Local](#customize-local)
     - [Local Settings](#local-settings)
       - [`~/.bash.local`](#bashlocal)
       - [`~/.gitconfig.local`](#gitconfiglocal)
@@ -28,7 +28,7 @@ Table of Contents
     - [Forks](#forks)
   - [Update](#update)
   - [License](#license)
-  - [🙇‍♂️ Thank you](#️-thank-you)
+  - [Thank you](#thank-you)
 
 Setup
 -----
@@ -90,7 +90,7 @@ After the first run, make sure to add your ssh key to:
 2. Install sizeup license
 3. Install bartender license)
 
-🎨 Customize
+Customize
 ------------
 Output for `git log`:
 
@@ -104,7 +104,7 @@ Output for `git log`:
 |:---:|:---:|
 | macOS | Ubuntu |
 
-Customize
+Customize Local
 ---------
 
 ### Local Settings
@@ -204,7 +204,7 @@ License
 
 The code is available under the [MIT license][license].
 
-🙇‍♂️ Thank you
+Thank you
 ---------
 
 Inspiration and outright theft of these great dotfiles:

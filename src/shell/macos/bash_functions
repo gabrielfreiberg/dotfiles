@@ -5,7 +5,7 @@
 # Change working directory to the top-most Finder window location
 
 cdf() { # short for `cdfinder`
-	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
+	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')" || return;
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -37,17 +37,17 @@ function cr4bt() {
 function toggle_bt_device() {
     mac_addr=$1
 
-    if [[ $(blueutil --is-connected $mac_addr) = '1' ]]
+    if [[ $(blueutil --is-connected "$mac_addr") = '1' ]]
     then
-        echo Disconnecting $mac_addr
-        blueutil --unpair $mac_addr
+        echo Disconnecting "$mac_addr"
+        blueutil --unpair "$mac_addr"
     else
-        echo Reconnecting $mac_addr
-        blueutil --unpair $mac_addr
+        echo Reconnecting "$mac_addr"
+        blueutil --unpair "$mac_addr"
         sleep 1
-        blueutil --pair $mac_addr
+        blueutil --pair "$mac_addr"
         sleep 1
-        blueutil --connect $mac_addr
+        blueutil --connect "$mac_addr"
     fi
 }
 
