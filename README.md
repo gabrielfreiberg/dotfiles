@@ -48,15 +48,15 @@ That's it! ✨ Almost.
 
 The setup process will:
 
-* Download the dotfiles on your computer
+- Download the dotfiles on your computer
   (by default it will suggest `~/projects/dotfiles`).
-* [Symlink][symlink] the [Git], [shell], [tmux],
+- [Symlink][symlink] the [Git], [shell], [tmux],
   and [Vim] related files.
-* Install applications / command-line tools for
+- Install applications / command-line tools for
   [macOS][install macos] / [Ubuntu][install ubuntu].
-* Set custom [macOS][preferences macos] /
+- Set custom [macOS][preferences macos] /
   [Ubuntu][preferences ubuntu] preferences.
-* Install the [Vim][vim plugins] and
+- Install the [Vim][vim plugins] and
   [VS Code][vscode plugins] plugins.
 
 Setup process in action:
@@ -92,6 +92,7 @@ After the first run, make sure to add your ssh key to:
 
 Customize
 ------------
+
 Output for `git log`:
 
 | ![Output for Git log on macOS][git log macos] | ![Output for Git log on Ubuntu][git log ubuntu] |
@@ -209,9 +210,9 @@ Thank you
 
 Inspiration and outright theft of these great dotfiles:
 
-* alrra
-* paulirish
-* mathiasbynens
+- alrra
+- paulirish
+- mathiasbynens
 
 <!-- Link labels: -->
 
