@@ -43,6 +43,7 @@ install_plugin "Partial Diff" "ryu1kn.partial-diff"
 # install_plugin "Prophet" "SqrTT.prophet" # For SFCC development only
 install_plugin "Random" "jrebocho.vscode-random"
 install_plugin "Sequential Number" "neptunedesign.vs-sequential-number"
+install_plugin "Shell Check" "timonwong.shellcheck"
 install_plugin "Sort Lines" "Tyriar.sort-lines"
 install_plugin "Unique Lines" "bibhasdn.unique-lines"
 install_plugin "Vim" "vscodevim.vim"

@@ -10,12 +10,13 @@ print_in_purple "\n   Useful Binaries\n\n"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-brew_install "ack" "ack"
-brew_install "fzf" "fzf"
-brew_install "pv" "pv"
-brew_install "rename" "rename"
-brew_install "rlwrap" "rlwrap"
-brew_install "tree" "tree"
+brew_install "ack" "ack" # Search for patterns in files
+brew_install "bat" "bat" # cat with wings (and syntax highlighting)
+brew_install "fzf" "fzf" # Command-line fuzzy finder
+brew_install "pv" "pv" # Monitor the progress of data through a pipe
+brew_install "rename" "rename" # Perl-powered file rename script
+brew_install "rlwrap" "rlwrap" # Readline wrapper
+brew_install "tree" "tree" # Display directories as trees (with optional color/HTML output)
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
