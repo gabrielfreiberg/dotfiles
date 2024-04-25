@@ -26,12 +26,25 @@ function speakers() {
 
 # Toggle bluetooth devices
 
-function trackpad() {
-    toggle_bt_device "f4-1b-a1-30-7d-87"
-}
+function bu () {
+    device_name=$1
+    declare device_mac_id
 
-function cr4bt() {
-    toggle_bt_device "00-11-67-c7-5e-78"
+    if [[ $device_name = "trackpad" ]]
+    then
+        device_mac_id="f4-1b-a1-30-7d-87"
+    elif [[ $device_name = "speakers" ]]
+    then
+        device_mac_id="00-11-67-c7-5e-78"
+    elif [[ $device_name = "keyboard" ]]
+    then
+        device_mac_id="b8-f6-b1-0c-c2-1e"
+    else
+        echo "Unknown device: $device_name"
+        return
+    fi
+
+    toggle_bt_device "$device_mac_id"
 }
 
 function toggle_bt_device() {
