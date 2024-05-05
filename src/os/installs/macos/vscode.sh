@@ -28,6 +28,7 @@ printf "\n"
 # Install the VSCode plugins
 # In case of issuer certificate errors, go to user settings and set "http.proxyStrictSSL" to false
 
+install_plugin "Bookmarks" "alefragnani.Bookmarks"
 install_plugin "EditorConfig" "EditorConfig.EditorConfig"
 install_plugin "Encode/Decode" "mitchdenny.ecdc"
 install_plugin "Github VSCode Theme" "GitHub.github-vscode-theme"
