@@ -64,3 +64,25 @@ function toggle_bt_device() {
     fi
 }
 
+
+# Litra on alias
+# Clean me up
+function litra() {
+    if [[ $1 = "on" && $2 = "--all" ]]
+    then
+        device_serials=$(litra devices | sed -n 's/.*Litra Glow (\([^)]*\)).*/\1/p')
+        for device_serial in $device_serials
+        do
+            litra on -s $device_serial
+        done
+    elif [[ $1 = "off" && $2 = "--all" ]]
+    then
+        device_serials=$(litra devices | sed -n 's/.*Litra Glow (\([^)]*\)).*/\1/p')
+        for device_serial in $device_serials
+        do
+            litra off -s $device_serial
+        done
+    else
+        $(brew --prefix)/bin/litra $@
+    fi
+}
