@@ -510,7 +510,7 @@ codez() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Github Copilot
+# Github Copilot: Suggest
 
 ghcs() {
 	TARGET="shell"
@@ -592,6 +592,7 @@ ghcs() {
 	fi
 }
 
+# Github Copilot: Explain
 ghce() {
 	local GH_DEBUG="$GH_DEBUG"
 
