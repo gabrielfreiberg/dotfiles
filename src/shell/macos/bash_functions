@@ -70,19 +70,37 @@ function toggle_bt_device() {
 function litra() {
     if [[ $1 = "on" && $2 = "--all" ]]
     then
-        device_serials=$(litra devices | sed -n 's/.*Litra Glow (\([^)]*\)).*/\1/p')
+        echo "Turning on all Litra Glow devices..."
+        # Get serial numbers for all Litra Glow devices using JSON output
+        device_serials=$(litra devices --json | jq -r '.[] | select(.device_type == "Litra Glow") | .serial_number')
+
+        if [[ -z "$device_serials" ]]; then
+            echo "No Litra Glow devices found"
+            return
+        fi
+
         for device_serial in $device_serials
         do
-            litra on -s $device_serial
+            echo "Turning on device with serial: $device_serial"
+            "$(brew --prefix)/bin/litra" on -s "$device_serial"
         done
     elif [[ $1 = "off" && $2 = "--all" ]]
     then
-        device_serials=$(litra devices | sed -n 's/.*Litra Glow (\([^)]*\)).*/\1/p')
+        echo "Turning off all Litra Glow devices..."
+        # Get serial numbers for all Litra Glow devices using JSON output
+        device_serials=$(litra devices --json | jq -r '.[] | select(.device_type == "Litra Glow") | .serial_number')
+
+        if [[ -z "$device_serials" ]]; then
+            echo "No Litra Glow devices found"
+            return
+        fi
+
         for device_serial in $device_serials
         do
-            litra off -s $device_serial
+            echo "Turning off device with serial: $device_serial"
+            "$(brew --prefix)/bin/litra" off -s "$device_serial"
         done
     else
-        $(brew --prefix)/bin/litra $@
+        "$(brew --prefix)/bin/litra" "$@"
     fi
 }
