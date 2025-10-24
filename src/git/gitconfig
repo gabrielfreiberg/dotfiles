@@ -279,6 +279,7 @@
     # annotated tags when pushing branches out.
 
     followTags = true
+	autoSetupRemote = true
 
 [user]
 
@@ -313,3 +314,5 @@
 	trustExitCode = true
 [commit]
 	template = /Users/gabrielfreiberg/.stCommitMsg
+[url "git@github.com:"]
+	insteadOf = https://github.com/
