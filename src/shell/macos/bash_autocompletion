@@ -37,3 +37,13 @@ if command -v terraform &> /dev/null; then
     TERRAFORM_PATH="$(brew --prefix terraform)/bin/terraform"
     complete -C "$TERRAFORM_PATH" terraform
 fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Salesforce CLI autocompletion
+# Inlined output from: `sf autocomplete script bash`
+if command -v sf &> /dev/null; then
+    SF_AC_BASH_SETUP_PATH=/Users/gabrielfreiberg/Library/Caches/sf/autocomplete/bash_setup
+    # shellcheck disable=SC1090
+    test -f "$SF_AC_BASH_SETUP_PATH" && source "$SF_AC_BASH_SETUP_PATH"
+fi
