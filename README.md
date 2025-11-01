@@ -1,5 +1,4 @@
-[Gabriel][repo]’s dotfiles
-==========================
+# [Gabriel][repo]’s dotfiles
 
 [![CI status for macOS][ci badge macos]][ci link macos]
 [![CI status for Ubuntu][ci badge ubuntu]][ci link ubuntu]
@@ -8,30 +7,27 @@ These are the base dotfiles that I start with when I set up
 a new environment (for more specific local needs I use the
 [`*.local`](#local-settings) files).
 
-Table of Contents
------------------
+## Table of Contents
 
-- [Gabriel’s dotfiles](#gabriels-dotfiles)
-  - [Table of Contents](#table-of-contents)
-  - [Setup](#setup)
-  - [Screenshots](#screenshots)
+- [Table of Contents](#table-of-contents)
+- [Setup](#setup)
+- [Screenshots](#screenshots)
   - [Git](#git)
-  - [Manual Steps](#manual-steps)
-  - [macOS](#macos)
   - [Git Log](#git-log)
   - [tmux \& Vim](#tmux--vim)
-  - [Customize](#customize)
+- [Manual Steps](#manual-steps)
+  - [macOS](#macos)
+- [Customize](#customize)
   - [Local Settings](#local-settings)
-  - [`~/.bash.local`](#bashlocal)
-  - [`~/.gitconfig.local`](#gitconfiglocal)
-  - [`~/.vimrc.local`](#vimrclocal)
-  - [Forks](#forks)
-  - [Update](#update)
-  - [License](#license)
-  - [Thank you](#thank-you)
+    - [`~/.bash.local`](#bashlocal)
+    - [`~/.gitconfig.local`](#gitconfiglocal)
+    - [`~/.vimrc.local`](#vimrclocal)
+- [Forks](#forks)
+- [Update](#update)
+- [License](#license)
+- [Thank you](#thank-you)
 
-Setup
------
+## Setup
 
 To set up the dotfiles run the appropriate snippet in the terminal:
 
@@ -66,11 +62,9 @@ Setup process in action:
 |:---:|:---:|
 <!-- markdownlint-enable MD033 -->
 
-Screenshots
------------
+## Screenshots
 
-Git
----
+### Git
 
 Output for `git status`:
 
@@ -78,22 +72,7 @@ Output for `git status`:
 |:---:|:---:|
 | macOS | Ubuntu |
 
-Manual Steps
-------------
-
-After the first run, make sure to add your ssh key to:
-
-1. [Add passphrase to ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-2. Unbind Spotlight Search keyboard shortcut
-
-macOS
------
-
-1. Install alfred license
-2. Install bartender license)
-
-Git Log
--------
+### Git Log
 
 Output for `git log`:
 
@@ -101,24 +80,32 @@ Output for `git log`:
 |:---:|:---:|
 | macOS | Ubuntu |
 
-tmux & Vim
-----------
+### tmux & Vim
 
 | ![tmux and Vim on macOS][vim macos] | ![tmux and Vim on Ubuntu][vim ubuntu] |
 |:---:|:---:|
 | macOS | Ubuntu |
 
-Customize
----------
+## Manual Steps
 
-Local Settings
---------------
+After the first run, make sure to add your ssh key to:
+
+1. [Add passphrase to ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+2. Unbind Spotlight Search keyboard shortcut
+
+### macOS
+
+1. Install alfred license
+2. Install bartender license)
+
+## Customize
+
+### Local Settings
 
 The dotfiles can be easily extended to suit additional local
 requirements by using the following files:
 
-`~/.bash.local`
----------------
+#### `~/.bash.local`
 
 The `~/.bash.local` file will be automatically sourced after all
 the other [Bash related files][shell], thus, allowing its content
@@ -144,8 +131,7 @@ export PATH
 alias g="git"
 ```
 
-`~/.gitconfig.local`
---------------------
+#### `~/.gitconfig.local`
 
 The `~/.gitconfig.local` file will be automatically included after
 the configurations from `~/.gitconfig`, thus, allowing its content
@@ -169,8 +155,7 @@ such as the Git user credentials, e.g.:
     signingKey = XXXXXXXX
 ```
 
-`~/.vimrc.local`
-----------------
+#### `~/.vimrc.local`
 
 The `~/.vimrc.local` file will be automatically sourced after
 `~/.vimrc`, thus, allowing its content to add or overwrite the
@@ -194,27 +179,23 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 ```
 
-Forks
------
+## Forks
 
 If you decide to [fork] this project, do not forget to substitute
 my username with your own in the [setup snippets](#setup) and [in
 the setup script][setup script].
 
-Update
-------
+## Update
 
 To update the dotfiles you can either run the [setup script][setup]
 or, if you want to update one particular part, run the appropriate
 [os script](src/os).
 
-License
--------
+## License
 
 The code is available under the [MIT license][license].
 
-Thank you
----------
+## Thank you
 
 Inspiration and outright theft of these great dotfiles:
 
