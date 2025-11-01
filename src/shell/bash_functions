@@ -521,7 +521,7 @@ ghcs() {
 	Supports executing suggested commands if applicable.
 
 	USAGE
-	  $FUNCNAME [flags] <prompt>
+      ${FUNCNAME[0]} [flags] <prompt>
 
 	FLAGS
 	  -d, --debug              Enable debugging
@@ -532,23 +532,23 @@ ghcs() {
 	EXAMPLES
 
 	- Guided experience
-	  $ $FUNCNAME
+	  $ ${FUNCNAME[0]}
 
 	- Git use cases
-	  $ $FUNCNAME -t git "Undo the most recent local commits"
-	  $ $FUNCNAME -t git "Clean up local branches"
-	  $ $FUNCNAME -t git "Setup LFS for images"
+	  $ ${FUNCNAME[0]} -t git "Undo the most recent local commits"
+	  $ ${FUNCNAME[0]} -t git "Clean up local branches"
+	  $ ${FUNCNAME[0]} -t git "Setup LFS for images"
 
 	- Working with the GitHub CLI in the terminal
-	  $ $FUNCNAME -t gh "Create pull request"
-	  $ $FUNCNAME -t gh "List pull requests waiting for my review"
-	  $ $FUNCNAME -t gh "Summarize work I have done in issues and pull requests for promotion"
+	  $ ${FUNCNAME[0]} -t gh "Create pull request"
+	  $ ${FUNCNAME[0]} -t gh "List pull requests waiting for my review"
+	  $ ${FUNCNAME[0]} -t gh "Summarize work I have done in issues and pull requests for promotion"
 
 	- General use cases
-	  $ $FUNCNAME "Kill processes holding onto deleted files"
-	  $ $FUNCNAME "Test whether there are SSL/TLS issues with github.com"
-	  $ $FUNCNAME "Convert SVG to PNG and resize"
-	  $ $FUNCNAME "Convert MOV to animated PNG"
+	  $ ${FUNCNAME[0]} "Kill processes holding onto deleted files"
+	  $ ${FUNCNAME[0]} "Test whether there are SSL/TLS issues with github.com"
+	  $ ${FUNCNAME[0]} "Convert SVG to PNG and resize"
+	  $ ${FUNCNAME[0]} "Convert MOV to animated PNG"
 	EOF
 
 	local OPT OPTARG OPTIND
@@ -582,8 +582,8 @@ ghcs() {
 	trap 'rm -f "$TMPFILE"' EXIT
 	if GH_DEBUG="$GH_DEBUG" gh copilot suggest -t "$TARGET" "$@" --shell-out "$TMPFILE"; then
 		if [ -s "$TMPFILE" ]; then
-			FIXED_CMD="$(cat $TMPFILE)"
-			history -s $(history 1 | cut -d' ' -f4-); history -s "$FIXED_CMD"
+			FIXED_CMD="$(cat "$TMPFILE")"
+			history -s "$(history 1 | cut -d' ' -f4-)"; history -s "$FIXED_CMD"
 			echo
 			eval "$FIXED_CMD"
 		fi
@@ -600,7 +600,7 @@ ghce() {
 	Wrapper around \`gh copilot explain\` to explain a given input command in natural language.
 
 	USAGE
-	  $FUNCNAME [flags] <command>
+	  ${FUNCNAME[0]} [flags] <command>
 
 	FLAGS
 	  -d, --debug   Enable debugging
@@ -609,13 +609,13 @@ ghce() {
 	EXAMPLES
 
 	# View disk usage, sorted by size
-	$ $FUNCNAME 'du -sh | sort -h'
+	$ ${FUNCNAME[0]} 'du -sh | sort -h'
 
 	# View git repository history as text graphical representation
-	$ $FUNCNAME 'git log --oneline --graph --decorate --all'
+	$ ${FUNCNAME[0]} 'git log --oneline --graph --decorate --all'
 
 	# Remove binary objects larger than 50 megabytes from git history
-	$ $FUNCNAME 'bfg --strip-blobs-bigger-than 50M'
+	$ ${FUNCNAME[0]} 'bfg --strip-blobs-bigger-than 50M'
 	EOF
 
 	local OPT OPTARG OPTIND
