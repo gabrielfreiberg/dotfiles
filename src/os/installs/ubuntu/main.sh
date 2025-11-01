@@ -12,7 +12,6 @@ upgrade
 ./build-essentials.sh
 
 ./git.sh
-./browsers.sh
 ./compression_tools.sh
 ./daily.sh
 ./image_tools.sh

@@ -11,10 +11,10 @@ jobs:
     steps:
 
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Check links from Markdown file
-        run: ./scripts/check_links/markdown.sh
+        run: ./scripts/check_links/index.sh
 
 name: Check links
 
