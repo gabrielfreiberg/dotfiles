@@ -31,6 +31,7 @@ create_symlinks() {
         "vim/vim"
         "vim/vimrc"
 
+        "amethyst/amethyst.yml"
     )
 
     local i=""
