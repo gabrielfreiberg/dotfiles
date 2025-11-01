@@ -87,8 +87,7 @@ After the first run, make sure to add your ssh key to:
 #### macOS
 
 1. Install alfred license
-2. Install sizeup license
-3. Install bartender license)
+2. Install bartender license)
 
 Customize
 ------------

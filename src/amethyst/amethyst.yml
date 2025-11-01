@@ -223,9 +223,9 @@ reevaluate-windows:
   key: z
 
 # Turn on or off focus-follows-mouse.
-toggle-focus-follows-mouse:
-  mod: mod2
-  key: x
+# toggle-focus-follows-mouse:
+#   mod: mod2
+#   key: x
 
 # Automatically quit and reopen Amethyst.
 relaunch-amethyst:
