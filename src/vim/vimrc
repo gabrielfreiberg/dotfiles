@@ -344,7 +344,6 @@ function! InitPlugins() abort
     call minpac#add('ap/vim-css-color')
     call minpac#add('chrisbra/unicode.vim')
     call minpac#add('chrisbra/vim-xml-runtime')
-    call minpac#add('editorconfig/editorconfig-vim')
     call minpac#add('godlygeek/tabular')
     call minpac#add('isRuslan/vim-es6')
     call minpac#add('jelera/vim-javascript-syntax')
@@ -360,9 +359,6 @@ function! InitPlugins() abort
     call minpac#add('scrooloose/nerdtree')
     call minpac#add('scrooloose/syntastic')
     call minpac#add('sheerun/vim-polyglot', { 'type': 'opt' })
-    call minpac#add('shougo/neocomplcache.vim')
-    call minpac#add('shougo/neosnippet')
-    call minpac#add('shougo/neosnippet-snippets')
     call minpac#add('thiagoalessio/rainbow_levels.vim')
     call minpac#add('tomtom/tcomment_vim')
     call minpac#add('tpope/vim-commentary')
@@ -432,16 +428,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven
 " https://github.com/plasticboy/vim-markdown#disable-folding
 
 let g:vim_markdown_folding_disabled=1
-
-
-" ----------------------------------------------------------------------
-" | Plugins - NeoComplCache                                            |
-" ----------------------------------------------------------------------
-
-" Enable `neocomplcache` by default.
-" https://github.com/Shougo/neocomplcache.vim#installation
-
-let g:neocomplcache_enable_at_startup=1
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -755,7 +741,10 @@ map <leader>gd :SignifyToggle<cr>
 " [,ffu] Convert file to use Unix line endings.
 " See also: https://vim.fandom.com/wiki/File_format
 
-map <leader>ffu :edit ++fileformat=dos <bar> :setlocal fileformat=unix <bar> :write!<cr><cr>
+map <leader>ffu :edit ++fileformat=dos
+        \ <bar> :setlocal fileformat=unix
+        \ <bar> :write! ++encoding=utf-8 <cr><cr>
+        \ <bar> :edit! <cr><cr>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

@@ -1,6 +1,6 @@
 {
     "header-style": {
-        "style": "setext_with_atx"
+        "style": "atx"
     },
     "line-length": {
         "code_blocks": false,

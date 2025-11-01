@@ -1,5 +1,4 @@
-[Gabriel][repo]’s dotfiles
-==========================
+# [Gabriel][repo]’s dotfiles
 
 [![CI status for macOS][ci badge macos]][ci link macos]
 [![CI status for Ubuntu][ci badge ubuntu]][ci link ubuntu]
@@ -8,30 +7,27 @@ These are the base dotfiles that I start with when I set up
 a new environment (for more specific local needs I use the
 [`*.local`](#local-settings) files).
 
-Table of Contents
------------------
+## Table of Contents
 
-- [Gabriel’s dotfiles](#gabriels-dotfiles)
-  - [Table of Contents](#table-of-contents)
-  - [Setup](#setup)
-  - [Screenshots](#screenshots)
-    - [Git](#git)
-    - [Manual Steps](#manual-steps)
-      - [macOS](#macos)
-  - [Customize](#customize)
-    - [tmux \& Vim](#tmux--vim)
-  - [Customize Local](#customize-local)
-    - [Local Settings](#local-settings)
-      - [`~/.bash.local`](#bashlocal)
-      - [`~/.gitconfig.local`](#gitconfiglocal)
-      - [`~/.vimrc.local`](#vimrclocal)
-    - [Forks](#forks)
-  - [Update](#update)
-  - [License](#license)
-  - [Thank you](#thank-you)
+- [Table of Contents](#table-of-contents)
+- [Setup](#setup)
+- [Screenshots](#screenshots)
+  - [Git](#git)
+  - [Git Log](#git-log)
+  - [tmux \& Vim](#tmux--vim)
+- [Manual Steps](#manual-steps)
+  - [macOS](#macos)
+- [Customize](#customize)
+  - [Local Settings](#local-settings)
+    - [`~/.bash.local`](#bashlocal)
+    - [`~/.gitconfig.local`](#gitconfiglocal)
+    - [`~/.vimrc.local`](#vimrclocal)
+- [Forks](#forks)
+- [Update](#update)
+- [License](#license)
+- [Thank you](#thank-you)
 
-Setup
------
+## Setup
 
 To set up the dotfiles run the appropriate snippet in the terminal:
 
@@ -66,8 +62,7 @@ Setup process in action:
 |:---:|:---:|
 <!-- markdownlint-enable MD033 -->
 
-Screenshots
------------
+## Screenshots
 
 ### Git
 
@@ -77,20 +72,7 @@ Output for `git status`:
 |:---:|:---:|
 | macOS | Ubuntu |
 
-### Manual Steps
-
-After the first run, make sure to add your ssh key to:
-
-1. [Add passphrase to ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-2. Unbind Spotlight Search keyboard shortcut
-
-#### macOS
-
-1. Install alfred license
-2. Install bartender license)
-
-Customize
-------------
+### Git Log
 
 Output for `git log`:
 
@@ -104,8 +86,19 @@ Output for `git log`:
 |:---:|:---:|
 | macOS | Ubuntu |
 
-Customize Local
----------
+## Manual Steps
+
+After the first run, make sure to add your ssh key to:
+
+1. [Add passphrase to ssh-agent](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+2. Unbind Spotlight Search keyboard shortcut
+
+### macOS
+
+1. Install alfred license
+2. Install bartender license)
+
+## Customize
 
 ### Local Settings
 
@@ -186,26 +179,23 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 ```
 
-### Forks
+## Forks
 
 If you decide to [fork] this project, do not forget to substitute
 my username with your own in the [setup snippets](#setup) and [in
 the setup script][setup script].
 
-Update
-------
+## Update
 
 To update the dotfiles you can either run the [setup script][setup]
 or, if you want to update one particular part, run the appropriate
 [os script](src/os).
 
-License
--------
+## License
 
 The code is available under the [MIT license][license].
 
-Thank you
----------
+## Thank you
 
 Inspiration and outright theft of these great dotfiles:
 
