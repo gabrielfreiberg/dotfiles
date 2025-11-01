@@ -9,8 +9,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 print_in_purple "\n   Daily Tools\n\n"
 
 brew_install "Adobe Acrobat Reader" "adobe-acrobat-reader" "--cask"
-brew_install "Alfred" "homebrew/cask-versions/alfred4" "--cask"
-brew_install "Bartender" "bb/src/shell/macos/bash_functionsartender" "--cask"
+brew_install "Alfred" "alfred" "--cask"
+brew_install "Bartender" "bartender" "--cask"
 brew_install "ChatGPT" "chatgpt" "--cask"
 brew_install "Google Drive" "google-drive" "--cask"
 brew_install "Bitwarden" "bitwarden" "--cask"
