@@ -39,6 +39,7 @@ function bu () {
     elif [[ $device_name = "keyboard" ]]
     then
         device_mac_id="b8-f6-b1-0c-c2-1e"
+        device_pin="0000"
     else
         echo "Unknown device: $device_name"
         return
@@ -49,6 +50,7 @@ function bu () {
 
 function toggle_bt_device() {
     mac_addr=$1
+    pin=$2
 
     if [[ $(blueutil --is-connected "$mac_addr") = '1' ]]
     then
@@ -58,8 +60,17 @@ function toggle_bt_device() {
         echo Reconnecting "$mac_addr"
         blueutil --unpair "$mac_addr"
         sleep 1
+
+        if [[ -n "$pin" ]]
+        then
+            blueutil --pair "$mac_addr" "$pin"
+        else
+            blueutil --pair "$mac_addr"
+        fi
+
         blueutil --pair "$mac_addr"
         sleep 1
+
         blueutil --connect "$mac_addr"
     fi
 }
