@@ -75,42 +75,68 @@ function toggle_bt_device() {
 }
 
 
-# Litra on alias
-# Clean me up
+
+# Synchronise Litra Glow settings before delegating to the real binary
 function litra() {
-    if [[ $1 = "on" && $2 = "--all" ]]
-    then
-        echo "Turning on all Litra Glow devices..."
-        # Get serial numbers for all Litra Glow devices using JSON output
-        device_serials=$(litra devices --json | jq -r '.[] | select(.device_type == "Litra Glow") | .serial_number')
+    local litra_bin
+    litra_bin="${LITRA_BIN:-$(type -P litra)}"
 
-        if [[ -z "$device_serials" ]]; then
-            echo "No Litra Glow devices found"
-            return
-        fi
-
-        for device_serial in $device_serials
-        do
-            echo "Turning on device with serial: $device_serial"
-            "$(brew --prefix)/bin/litra" on -s "$device_serial"
-        done
-    elif [[ $1 = "off" && $2 = "--all" ]]
-    then
-        echo "Turning off all Litra Glow devices..."
-        # Get serial numbers for all Litra Glow devices using JSON output
-        device_serials=$(litra devices --json | jq -r '.[] | select(.device_type == "Litra Glow") | .serial_number')
-
-        if [[ -z "$device_serials" ]]; then
-            echo "No Litra Glow devices found"
-            return
-        fi
-
-        for device_serial in $device_serials
-        do
-            echo "Turning off device with serial: $device_serial"
-            "$(brew --prefix)/bin/litra" off -s "$device_serial"
-        done
-    else
-        "$(brew --prefix)/bin/litra" "$@"
+    if [[ -z "$litra_bin" ]]; then
+        echo "Unable to locate the Litra CLI binary" >&2
+        return 1
     fi
+
+    if [[ $# -eq 0 ]]; then
+        "$litra_bin"
+        return $?
+    fi
+
+    local command="$1"
+    shift
+
+    if [[ "$command" == "toggle" ]]; then
+        local has_target=false
+        local arg
+
+        for arg in "$@"; do
+            case "$arg" in
+                --serial-number|--device-path|--device-type|-s|-p|-t|\
+                --serial-number=*|--device-path=*|--device-type=*)
+                    has_target=true
+                    break
+                    ;;
+            esac
+        done
+
+        if [[ "$has_target" == false ]] && command -v jq >/dev/null 2>&1; then
+            local devices_json
+            if devices_json="$("$litra_bin" devices --json 2>/dev/null)"; then
+                local device_rows first_row second_row
+                device_rows=$(printf '%s\n' "$devices_json" | jq -r '[.[] | select((.device_type // "") | ascii_downcase | startswith("litra"))][:2][] | [.serial_number, (.brightness_in_lumen // ""), (.temperature_in_kelvin // "")] | @tsv')
+                first_row=$(printf '%s\n' "$device_rows" | sed -n '1p')
+                second_row=$(printf '%s\n' "$device_rows" | sed -n '2p')
+
+                if [[ -n "$first_row" && -n "$second_row" ]]; then
+                    local first_serial first_brightness first_temperature second_serial tab
+                    tab=$'\t'
+                    IFS=$'\t' read -r first_serial first_brightness first_temperature <<<"$first_row"
+                    second_serial=${second_row%%"$tab"*}
+
+                    if [[ -n "$first_serial" && -n "$second_serial" && "$first_serial" != "$second_serial" ]]; then
+                        if [[ -n "$first_brightness" ]]; then
+                            "$litra_bin" brightness --serial-number "$second_serial" --value "$first_brightness" >/dev/null 2>&1 || echo "Warning: failed to copy brightness to $second_serial" >&2
+                        fi
+
+                        if [[ -n "$first_temperature" ]]; then
+                            "$litra_bin" temperature --serial-number "$second_serial" --value "$first_temperature" >/dev/null 2>&1 || echo "Warning: failed to copy temperature to $second_serial" >&2
+                        fi
+                    fi
+                fi
+            fi
+        fi
+    fi
+
+    "$litra_bin" "$command" "$@"
 }
+
+
