@@ -126,9 +126,9 @@ get_os() {
 
     kernelName="$(uname -s)"
 
-    if [ "$kernelName" == "Darwin" ]; then
+    if [ "$kernelName" = "Darwin" ]; then
         os="macos"
-    elif [ "$kernelName" == "Linux" ] && \
+    elif [ "$kernelName" = "Linux" ] && \
          [ -e "/etc/os-release" ]; then
         os="$(. /etc/os-release; printf "%s" "$ID")"
     else
@@ -141,14 +141,9 @@ get_os() {
 
 get_os_upstream() {
 
-    local os=""
-    local kernelName=""
+    local os_upstream=""
 
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    kernelName="$(uname -s)"
-
-    if [ "$(get_os)" == "linuxmint" ]; then
+    if [ "$(get_os)" = "linuxmint" ]; then
         os_upstream="ubuntu"
     else
         os_upstream="$(get_os)"
@@ -167,7 +162,7 @@ get_os_version() {
 
     os="$(get_os)"
 
-    if [ "$os" == "macos" ]; then
+    if [ "$os" = "macos" ]; then
         version="$(sw_vers -productVersion)"
     elif [ -e "/etc/os-release" ]; then
         version="$(. /etc/os-release; printf "%s" "$VERSION_ID")"
@@ -184,9 +179,9 @@ is_git_repository() {
 is_supported_version() {
 
     # shellcheck disable=SC2206
-    declare -a v1=(${1//./ })
+    local -a v1=(${1//./ })
     # shellcheck disable=SC2206
-    declare -a v2=(${2//./ })
+    local -a v2=(${2//./ })
     local i=""
 
     # Fill empty positions in v1 with zeros.
@@ -324,26 +319,18 @@ show_spinner() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Note: In order for the Travis CI site to display
-    # things correctly, it needs special treatment, hence,
-    # the "is Travis CI?" checks.
+    # Provide more space so that the text hopefully
+    # doesn't reach the bottom line of the terminal window.
+    #
+    # This is a workaround for escape sequences not tracking
+    # the buffer position (accounting for scrolling).
+    #
+    # See also: https://unix.stackexchange.com/a/278888
 
-    if [ "$TRAVIS" != "true" ]; then
+    printf "\n\n\n"
+    tput cuu 3
 
-        # Provide more space so that the text hopefully
-        # doesn't reach the bottom line of the terminal window.
-        #
-        # This is a workaround for escape sequences not tracking
-        # the buffer position (accounting for scrolling).
-        #
-        # See also: https://unix.stackexchange.com/a/278888
-
-        printf "\n\n\n"
-        tput cuu 3
-
-        tput sc
-
-    fi
+    tput sc
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -357,11 +344,7 @@ show_spinner() {
 
         # Print frame text.
 
-        if [ "$TRAVIS" != "true" ]; then
-            printf "%s\n" "$frameText"
-        else
-            printf "%s" "$frameText"
-        fi
+        printf "%s\n" "$frameText"
 
         sleep 0.2
 
@@ -369,11 +352,7 @@ show_spinner() {
 
         # Clear frame text.
 
-        if [ "$TRAVIS" != "true" ]; then
-            tput rc
-        else
-            printf "\r"
-        fi
+        tput rc
 
     done
 

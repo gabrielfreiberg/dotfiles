@@ -37,7 +37,7 @@ copy_public_ssh_key_to_clipboard () {
 generate_ssh_keys() {
 
     ask "Please provide an email address: " && printf "\n"
-    ssh-keygen -t rsa -b 4096 -C "$(get_answer)" -f "$1"
+    ssh-keygen -t ed25519 -C "$(get_answer)" -f "$1"
 
     print_result $? "Generate SSH keys"
 
@@ -45,7 +45,7 @@ generate_ssh_keys() {
 
 open_github_ssh_page() {
 
-    declare -r GITHUB_SSH_URL="https://github.com/settings/ssh"
+    local -r GITHUB_SSH_URL="https://github.com/settings/ssh"
 
     # The order of the following checks matters
     # as on Ubuntu there is also a utility called `open`.

@@ -101,8 +101,8 @@
         current_branch=\"$(git symbolic-ref --short HEAD)\"; \
         branch=\"${2:-$current_branch}\"; \
         \
-        if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
-            git fetch origin refs/pull/$1/head:pr/$1 && \
+        if [[ \"$1\" =~ ^[0-9]+$ ]]; then \
+            git fetch origin \"refs/pull/$1/head:pr/$1\" && \
             git checkout -B \"$branch\" && \
             git rebase pr/$1 && \
             git branch --delete --force pr/$1; \
@@ -150,7 +150,7 @@
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Seach commits by commit message.
+    # Search commits by commit message.
 
     sm = "!f() { \
         git log --date=short --decorate --pretty=custom --grep=\"$1\"; \
@@ -193,10 +193,6 @@
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Start web-based visualizer.
-
-    w = instaweb --httpd=webrick
-
 [color "branch"]
 
     current = green bold
@@ -226,7 +222,7 @@
     attributesFile = ~/.gitattributes
     autocrlf = input
     editor = vim
-	excludesfile = /Users/gabrielfreiberg/.gitignore
+    excludesFile = ~/.gitignore
 
 [diff]
 
@@ -297,6 +293,12 @@
     # point to commits that are being rebased.
 
     updateRefs = true
+
+[tag]
+
+    # Sort tags by version number instead of lexicographic order.
+
+    sort = version:refname
 
 [user]
 
