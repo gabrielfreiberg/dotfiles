@@ -2,6 +2,9 @@
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Load OS specific configs.
+# Load OS and context specific configs.
 
-. "$OS/bash_autocompletion"
+if declare -F source_os_shell_file > /dev/null; then
+    source_os_shell_file "bash_autocompletion"
+    source_context_shell_file "bash_autocompletion"
+fi

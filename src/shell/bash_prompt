@@ -13,9 +13,12 @@ enable_color_support() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Load OS specific color support.
+    # Load OS and context specific color support.
 
-    . "$OS/bash_colors"
+    if declare -F source_os_shell_file > /dev/null; then
+        source_os_shell_file "bash_colors"
+        source_context_shell_file "bash_colors"
+    fi
 
 }
 
@@ -143,6 +146,11 @@ set_prompts() {
     PS1+="$white: "
     PS1+="$green\w"         # Working directory
     PS1+="\$(get_git_repository_details \"$white on $cyan\")"
+
+    if [ -n "$DOTFILES_CONTEXT" ]; then
+        PS1+="$white [$yellow$DOTFILES_CONTEXT$white]"
+    fi
+
     PS1+="\n"
     PS1+="\[$reset\]\[$white\]$ \[$reset\]"
 

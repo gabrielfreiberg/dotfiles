@@ -4,13 +4,15 @@
 [![CI status for Ubuntu][ci badge ubuntu]][ci link ubuntu]
 
 These are the base dotfiles that I start with when I set up
-a new environment (for more specific local needs I use the
-[`*.local`](#local-settings) files).
+a new environment. For more specific local needs I use the
+[`*.local`](#local-settings) files and shell contexts.
 
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
 - [Setup](#setup)
+  - [Full Machine Setup](#full-machine-setup)
+  - [Shell UX Only](#shell-ux-only)
 - [Screenshots](#screenshots)
   - [Git](#git)
   - [Git Log](#git-log)
@@ -19,6 +21,7 @@ a new environment (for more specific local needs I use the
   - [macOS](#macos)
 - [Customize](#customize)
   - [Local Settings](#local-settings)
+    - [`~/.bash.context`](#bashcontext)
     - [`~/.bash.local`](#bashlocal)
     - [`~/.gitconfig.local`](#gitconfiglocal)
     - [`~/.vimrc.local`](#vimrclocal)
@@ -28,6 +31,8 @@ a new environment (for more specific local needs I use the
 - [Thank you](#thank-you)
 
 ## Setup
+
+### Full Machine Setup
 
 To set up the dotfiles run the appropriate snippet in the terminal:
 
@@ -45,7 +50,7 @@ That's it! ✨ Almost.
 The setup process will:
 
 - Download the dotfiles on your computer
-  (by default it will suggest `~/projects/dotfiles`).
+  (by default it will suggest `~/code/tools/dotfiles`).
 - [Symlink][symlink] the [Git], [shell], [tmux],
   and [Vim] related files.
 - Install applications / command-line tools for
@@ -54,6 +59,53 @@ The setup process will:
   [Ubuntu][preferences ubuntu] preferences.
 - Install the [Vim][vim plugins] and
   [VS Code][vscode plugins] plugins.
+
+### Shell UX Only
+
+For remote environments where I only want the shell experience
+(aliases, prompt, inputrc, completion, and Starship), I use the
+shell-only setup instead of the full machine bootstrap.
+
+This setup:
+
+- Downloads the dotfiles on the target machine if needed.
+- Symlinks only the shell-related files.
+- Creates `~/.bash.context`, `~/.bash.local`, and `~/.starship.toml`.
+- Installs [Starship](https://starship.rs/) into `~/.local/bin`.
+- Leaves Git, Vim, tmux, app installs, and OS preferences alone.
+
+If the repo is already checked out locally on the target machine:
+
+```shell
+bash src/os/setup_shell.sh --context proxmox-host -y
+```
+
+One-off bootstrap from a remote machine:
+
+```shell
+bash -c "$(curl -LsS https://raw.github.com/gabrielfreiberg/dotfiles/main/src/os/setup_shell.sh)" -- --context proxmox-host
+```
+
+or:
+
+```shell
+bash -c "$(wget -qO - https://raw.github.com/gabrielfreiberg/dotfiles/main/src/os/setup_shell.sh)" -- --context proxmox-host
+```
+
+Current shell contexts:
+
+- `proxmox-host`
+- `proxmox-ct`
+- `openclaw`
+- `workstation` (the default on macOS)
+
+The selected context is stored in `~/.bash.context` and is shown in the
+prompt so it's obvious which type of machine I'm on.
+
+> [!NOTE]
+> Starship runs on the remote machine, but the glyphs are rendered by the
+> local terminal. That means I only need a Nerd Font configured on the
+> machine running the terminal app.
 
 Setup process in action:
 
@@ -104,6 +156,22 @@ After the first run, make sure to add your ssh key to:
 
 The dotfiles can be easily extended to suit additional local
 requirements by using the following files:
+
+#### `~/.bash.context`
+
+The `~/.bash.context` file sets the shell context for the current
+machine. This is the intended place to tell the shared shell config
+whether a machine is a workstation, a Proxmox host, a container, etc.
+
+Here is an example:
+
+```shell
+#!/bin/bash
+
+export DOTFILES_CONTEXT="proxmox-host"
+```
+
+Context-specific shell files live in [`src/shell/contexts`](src/shell/contexts).
 
 #### `~/.bash.local`
 
@@ -190,6 +258,21 @@ the setup script][setup script].
 To update the dotfiles you can either run the [setup script][setup]
 or, if you want to update one particular part, run the appropriate
 [os script](src/os).
+
+For shell-only remote environments, rerun:
+
+```shell
+bash src/os/setup_shell.sh --context proxmox-host -y
+```
+
+If the shell-only environment was set up from a normal git checkout,
+most day-to-day updates are just:
+
+```shell
+cd ~/code/tools/dotfiles
+git pull --ff-only
+exec bash -l
+```
 
 ## License
 

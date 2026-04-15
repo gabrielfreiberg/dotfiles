@@ -13,9 +13,6 @@ alias -- -="cd -"
 
 # Path shortcuts
 
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-
 alias cp="cp -iv"
 #             │└─ list copied files
 #             └─ prompt before overwriting an existing file
@@ -29,10 +26,6 @@ alias mv="mv -iv"
 #             │└─ list moved files
 #             └─ prompt before overwriting an existing file
 
-alias rm="rm -rf --"
-
-alias del="trash"
-
 alias chmox='chmod -x'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -40,15 +33,7 @@ alias chmox='chmod -x'
 # Git Stuff
 
 alias g="git"
-alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # git root
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# SFCC
-
-alias s="sfcc-ci"
-alias sal="sfcc-ci auth:login"
-alias ssl="sfcc-ci sandbox:list"
+alias gr='[ -n "$(git rev-parse --show-cdup 2> /dev/null)" ] && cd "$(git rev-parse --show-cdup 2> /dev/null || pwd)"' # git root
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -75,15 +60,15 @@ alias ls="command ls \${colorflag}"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# neovim
-alias vim="nvim"
-
 # Misc
 
 alias :q="exit"
 alias c="clear"
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias map="xargs -n1"
+
+if command -v dig > /dev/null 2>&1; then
+    alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+fi
 
 # Always enable colored `grep` output
 # Ignore case by default
@@ -106,10 +91,13 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # yes I occasionally 127.0.0.1 twitter.com ;)
 
-alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
+alias hosts='sudo_cmd ${EDITOR:-vim} /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Load OS specific configs.
+# Load OS and context specific configs.
 
-. "$OS/bash_aliases"
+if declare -F source_os_shell_file > /dev/null; then
+    source_os_shell_file "bash_aliases"
+    source_context_shell_file "bash_aliases"
+fi

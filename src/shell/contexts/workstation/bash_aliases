@@ -1,0 +1,20 @@
+#!/bin/bash
+
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+
+alias rm="rm -rf --"
+
+if command -v trash > /dev/null 2>&1; then
+    alias del="trash"
+fi
+
+if command -v nvim > /dev/null 2>&1; then
+    alias vim="nvim"
+fi
+
+if command -v sfcc-ci > /dev/null 2>&1; then
+    alias s="sfcc-ci"
+    alias sal="sfcc-ci auth:login"
+    alias ssl="sfcc-ci sandbox:list"
+fi

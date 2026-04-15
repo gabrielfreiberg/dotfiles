@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Set LS_COLORS (GNU).
+
+LS_COLORS=""
+
+LS_COLORS+="no=0;39:"
+LS_COLORS+="di=0;36:"
+LS_COLORS+="ex=0;32:"
+LS_COLORS+="fi=0;39:"
+LS_COLORS+="ec=:"
+LS_COLORS+="mi=1;31:"
+LS_COLORS+="ln=target:"
+LS_COLORS+="or=31;01"
+
+export LS_COLORS
+
+if [ -x /usr/bin/dircolors ]; then
+
+    if test -r ~/.dircolors; then
+        eval "$(dircolors -b ~/.dircolors)"
+    fi
+
+    alias dir="dir --color=auto"
+    alias egrep="egrep --color=auto"
+    alias fgrep="fgrep --color=auto"
+    alias grep="grep --color=auto"
+    alias ls="ls --color=auto"
+    alias vdir="vdir --color=auto"
+
+fi

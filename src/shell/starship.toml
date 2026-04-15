@@ -203,3 +203,7 @@ symbol = " "
 
 [zig]
 symbol = " "
+
+[env_var.DOTFILES_CONTEXT]
+variable = "DOTFILES_CONTEXT"
+format = '[$env_value](bold yellow) '

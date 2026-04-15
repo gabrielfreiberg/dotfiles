@@ -24,11 +24,74 @@ source_bash_files() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    source_if_exists() {
+        [ -r "$1" ] \
+            && . "$1"
+    }
+
+    source_context_settings() {
+
+        if [ -z "$DOTFILES_CONTEXT" ]; then
+            source_if_exists "$HOME/.bash.context"
+        fi
+
+        DOTFILES_SHELL_CONTEXT="$DOTFILES_CONTEXT"
+
+        if [ -z "$DOTFILES_SHELL_CONTEXT" ] && [ "$OS" = "macos" ]; then
+            DOTFILES_SHELL_CONTEXT="workstation"
+        fi
+
+    }
+
+    set_shell_source_layers() {
+
+        DOTFILES_SHELL_LAYERS=()
+
+        if [ "$OS" = "macos" ]; then
+            DOTFILES_SHELL_LAYERS+=("macos")
+        elif [ "$(uname -s)" = "Linux" ]; then
+            DOTFILES_SHELL_LAYERS+=("linux")
+
+            if [ -d "$DOTFILES_SHELL_DIR/$OS" ]; then
+                DOTFILES_SHELL_LAYERS+=("$OS")
+            fi
+        fi
+
+    }
+
+    source_os_shell_file() {
+
+        local fileName="$1"
+        local layer=""
+
+        for layer in "${DOTFILES_SHELL_LAYERS[@]}"; do
+            source_if_exists "$DOTFILES_SHELL_DIR/$layer/$fileName"
+        done
+
+    }
+
+    source_context_shell_file() {
+
+        local fileName="$1"
+
+        [ -n "$DOTFILES_SHELL_CONTEXT" ] \
+            && source_if_exists "$DOTFILES_SHELL_DIR/contexts/$DOTFILES_SHELL_CONTEXT/$fileName"
+
+    }
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     cd "$(dirname "$(readlink "${BASH_SOURCE[0]}")")" \
         && . "../os/utils.sh"
 
     # shellcheck disable=SC2034
     declare -r OS="$(get_os_upstream)"
+    declare -r DOTFILES_SHELL_DIR="$(pwd)"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    source_context_settings
+    set_shell_source_layers
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

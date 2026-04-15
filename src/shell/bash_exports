@@ -20,6 +20,14 @@ export EDITOR="vim"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Make sure user-level binaries are available.
+
+if [ -d "$HOME/.local/bin" ] && [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Ignore commands that start with spaces and duplicates.
 
 export HISTCONTROL=ignoreboth
@@ -46,10 +54,33 @@ export HISTSIZE=10000
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Prefer US English and use UTF-8 encoding.
+# Prefer UTF-8 locales when they are available.
 
-export LANG="en_US"
-export LC_ALL="en_US.UTF-8"
+set_preferred_locale() {
+
+    local localeName=""
+
+    if command -v locale > /dev/null 2>&1; then
+
+        if locale -a 2> /dev/null | grep -iq '^en_US\.utf-\?8$'; then
+            localeName="en_US.UTF-8"
+        elif locale -a 2> /dev/null | grep -iq '^C\.UTF-8$'; then
+            localeName="C.UTF-8"
+        fi
+
+    else
+        localeName="en_US.UTF-8"
+    fi
+
+    if [ -n "$localeName" ]; then
+        export LANG="$localeName"
+        export LC_ALL="$localeName"
+    fi
+
+}
+
+set_preferred_locale
+unset -f set_preferred_locale
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

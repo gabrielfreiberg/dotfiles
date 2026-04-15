@@ -1,0 +1,8 @@
+#!/bin/bash
+
+alias apti="sudo_cmd apt-get install"
+alias aptr="sudo_cmd apt-get remove"
+alias apts="apt-cache search"
+alias aptu="sudo_cmd apt-get update && sudo_cmd apt-get upgrade"
+
+alias u="sudo_cmd apt-get update && sudo_cmd apt-get upgrade"

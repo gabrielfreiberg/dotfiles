@@ -4,6 +4,18 @@
 
 # Create a new directory and enter it
 
+sudo_cmd() {
+
+    if command -v sudo &> /dev/null; then
+        sudo "$@"
+    else
+        "$@"
+    fi
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 mkd() {
 	mkdir -p "$@" && cd "$_";
 }
