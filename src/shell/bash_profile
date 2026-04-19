@@ -134,3 +134,7 @@ unset -f source_bash_files
 # and time of the last login, the message of the day, etc.).
 
 #clear
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
