@@ -1,7 +1,17 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 [aws]
+disabled = true
 symbol = " "
+
+[env_var.AWS_PROFILE]
+format = 'on [ $env_value](bold yellow) '
+
+[env_var.AWS_REGION]
+format = '[\($env_value\)](bold yellow) '
+
+[env_var.AWS_DEFAULT_REGION]
+format = '[\($env_value\)](bold yellow) '
 
 [buf]
 symbol = " "
